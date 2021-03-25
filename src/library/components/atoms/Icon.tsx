@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon} from 'react-native-eva-icons';
+import Icon from 'react-native-remix-icon';
 import * as Config from '@at/config';
 import _ from 'lodash';
 
@@ -19,9 +19,7 @@ const MtIcon: React.FunctionComponent<IconProps> = props => {
   const size = _.isNumber(props.size)
     ? props.size
     : iconSizeMap[props.size as keyof typeof iconSizeMap];
-  return (
-    <Icon name={props.icon} width={size} height={size} fill={props.color} />
-  );
+  return <Icon name={props.icon} size={size} color={props.color} />;
 };
 
 MtIcon.defaultProps = {

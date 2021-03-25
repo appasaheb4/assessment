@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Props} from 'react';
 
 import {ImageBackground, ImageStyle, TouchableOpacity} from 'react-native';
 import * as Config from '@at/config';
@@ -17,6 +17,8 @@ interface CircleButtonProps {
   image?: string;
   imageStyle?: ImageStyle;
   mode?: 'cover' | 'contain';
+  elevation?: number;
+  marginTop?: number;
 }
 
 const CircleButton: React.FunctionComponent<CircleButtonProps> = props => {
@@ -35,6 +37,8 @@ const CircleButton: React.FunctionComponent<CircleButtonProps> = props => {
         backgroundColor: props.background,
         borderRadius: dimensions,
         overflow: 'hidden',
+        elevation: props.elevation,
+        marginTop: props.marginTop,
       }}>
       {props.image && (
         <ImageBackground

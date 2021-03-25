@@ -12,6 +12,7 @@ import FloatingHeader from './FloatingHeader';
 import ButtonScrollView from './ButtonScrollView';
 import ItemWithTextActions from './ItemWithTextActions';
 import QuickTip from './QuickTip';
+import Tabbar from './Tabbar';
 
 export {
   SceneWrapper,
@@ -30,4 +31,5 @@ export {
   ButtonScrollView,
   ItemWithTextProps,
   QuickTip,
+  Tabbar,
 };

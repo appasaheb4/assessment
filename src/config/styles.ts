@@ -25,6 +25,7 @@ export enum COLORS {
   TEXTCOLORGREY = '#6C6C6C',
   BORDERCOLOR = '#E3E3E3',
   SHADOWBLUE = '#DDECF5',
+  PicaDay = '#1BC47D',
 }
 
 const DOCUMENT_WIDTH = 380;
