@@ -17,5 +17,5 @@ export {
   Pill,
   TextInput,
   ImageButton,
-  Icon
+  Icon,
 };

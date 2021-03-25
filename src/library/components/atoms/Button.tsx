@@ -41,7 +41,7 @@ const Button: React.FunctionComponent<ButtonProps> = props => {
         overflow: 'hidden',
         elevation: props.size === 'large' ? 5 : 0,
         justifyContent: 'center',
-        alignItems: 'center',,
+        alignItems: 'center',
       }}>
       <>
         {props.children}
