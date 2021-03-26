@@ -15,6 +15,8 @@ import * as FeatureComponents from '../components';
 import * as LibraryModels from '@at/library/models';
 import * as Models from '../models';
 
+import {PicaDayFlows} from '../flows';
+
 import {Stores} from '../stores';
 
 const PicaDayList = observer(() => {
@@ -64,19 +66,24 @@ const PicaDayList = observer(() => {
             />
           </LibraryComponents.Molecules.WrappedView>
         </LibraryComponents.Molecules.WrappedView>
-        <LibraryComponents.Molecules.WrappedView
-          size={LibraryModels.Component.ElementSize.Block}>
-          <View
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: Config.Styles.COLORS.WHITE,
-            }}>
-            <LibraryComponents.Molecules.Tabbar />
-          </View>
-        </LibraryComponents.Molecules.WrappedView>
+        <View
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: Config.Styles.COLORS.WHITE,
+          }}>
+          <LibraryComponents.Molecules.Tabbar
+            onPicaDay={() => PicaDayFlows.picaDay()}
+            onCaptureMoment={() => {
+              console.log('hi');
+
+              PicaDayFlows.captureMoment();
+            }}
+            onTemerature={() => PicaDayFlows.temperature()}
+          />
+        </View>
       </LibraryComponents.Molecules.WrappedView>
     </LibraryComponents.Molecules.SceneWrapper>
   );

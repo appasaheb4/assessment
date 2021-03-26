@@ -12,6 +12,7 @@ interface PillProps {
   disabled?: boolean;
   border?: boolean;
   removeTextContainer?: boolean;
+  alignItems?: 'center' | 'flex-end';
 }
 
 const Pill: React.FunctionComponent<PillProps> = props => (
@@ -21,6 +22,7 @@ const Pill: React.FunctionComponent<PillProps> = props => (
       paddingVertical: Config.Styles.MEASURE.SCALER.getScaledValue(
         props.size === 'small' ? 3 : 4,
       ),
+      alignItems: props.alignItems,
       paddingHorizontal: Config.Styles.MEASURE.SCALER.getScaledValue(5),
       backgroundColor: props.color || Config.Styles.COLORS.LIGHT_1,
       borderRadius: Config.Styles.MEASURE.SCALER.getScaledValue(10),
