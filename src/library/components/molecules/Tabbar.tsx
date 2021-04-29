@@ -8,9 +8,9 @@ import Pill from '../atoms/Pill';
 
 interface TabBarProps {
   tabs?: Array<string>;
-  onPicaDay: () => void;
-  onCaptureMoment: () => void;
-  onTemerature: () => void;
+  onPicaDay?: () => void;
+  onCaptureMoment?: () => void;
+  onTemerature?: () => void;
 }
 
 const Tabbar: React.FunctionComponent<TabBarProps> = props => (
@@ -22,7 +22,7 @@ const Tabbar: React.FunctionComponent<TabBarProps> = props => (
       minHeight={40}
       stack={Models.Component.StackDirection.Horizontal}>
       <Pill
-        onPress={() => props.onPicaDay()}
+        onPress={() => props.onPicaDay && props.onPicaDay()}
         color={Config.Styles.COLORS.WHITE}
         alignItems="center">
         <Icon icon="home-fill" size={24} color={Config.Styles.COLORS.BLACK} />
@@ -34,7 +34,7 @@ const Tabbar: React.FunctionComponent<TabBarProps> = props => (
         marginTop={-70}
         size={48}
         onPress={() => {
-          props.onCaptureMoment();
+          props.onCaptureMoment && props.onCaptureMoment();
         }}>
         <Icon
           icon="ri-add-line"
@@ -43,7 +43,7 @@ const Tabbar: React.FunctionComponent<TabBarProps> = props => (
         />
       </CircleButton>
       <Pill
-        onPress={() => props.onTemerature()}
+        onPress={() => props.onTemerature && props.onTemerature()}
         color={Config.Styles.COLORS.WHITE}>
         <Icon
           icon="ri-information-line"

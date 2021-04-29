@@ -1,3 +1,3 @@
-import Config from 'react-native-config';
+//import Config from 'react-native-config';
 
-export const API_HOST = 'xyz'; // Config.API_HOST;
+export const API_HOST = 'https://rosterbuster.aero/wp-content'; // Config.API_HOST;
