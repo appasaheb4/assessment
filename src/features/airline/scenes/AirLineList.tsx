@@ -1,18 +1,18 @@
 import React from 'react';
-import {Text, View, FlatList, RefreshControl, SectionList} from 'react-native';
+import {View, FlatList, RefreshControl, SectionList} from 'react-native';
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {observer} from 'mobx-react';
+import moment from 'moment';
 import * as Config from '@at/config';
 import * as LibraryComponents from '@at/library/components';
-import * as FeatureComponents from '../components';
 import * as LibraryModels from '@at/library/models';
 import * as Models from '../models';
 
 import {Stores} from '../stores';
 
 const AirLineList = observer(() => {
-  const route = useRoute<RouteProp<Models.PicaDayRouteParams, 'AirLineList'>>();
+  // const route = useRoute<RouteProp<Models.PicaDayRouteParams, 'AirLineList'>>();
   const navigation = useNavigation<
     StackNavigationProp<Models.AirLineRouteParams, 'AirLineList'>
   >();
@@ -21,15 +21,36 @@ const AirLineList = observer(() => {
     headerShown: false,
   });
 
-  const getIcon = (code: string) => {
-    if (code === 'FLIGHT') {
-      return 'ri-plane-fill';
+  const capitalize = (s: string) => {
+    if (typeof s !== 'string') {
+      return '';
     }
-    if (code === 'LAYOVER') {
-      return 'ri-briefcase-4-fill';
-    }
-    return 'ri-file-copy-fill';
+    return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
   };
+
+  const getIcon = (item: any) => {
+    if (item.DutyCode === 'FLIGHT') {
+      return {
+        icon: 'ri-plane-fill',
+        title: `${item.Departure} - ${item.Destination}`,
+      };
+    }
+    if (item.DutyCode === 'LAYOVER') {
+      return {
+        icon: 'ri-briefcase-4-fill',
+        title: `${capitalize(item.DutyCode)}`,
+      };
+    }
+    return {
+      icon: 'ri-file-copy-fill',
+      title: `${
+        capitalize(item.DutyCode) !== 'Off'
+          ? capitalize(item.DutyCode)
+          : 'Standby'
+      }`,
+    };
+  };
+
   return (
     <LibraryComponents.Molecules.SceneWrapper
       gutter={LibraryModels.Component.Location.None}
@@ -88,7 +109,7 @@ const AirLineList = observer(() => {
                                   gutterMultiplier={0.4}
                                   align="center">
                                   <LibraryComponents.Atoms.Icon
-                                    icon={getIcon(item.DutyCode)}
+                                    icon={getIcon(item).icon}
                                     size={40}
                                     color={Config.Styles.COLORS.BLACK}
                                   />
@@ -103,8 +124,25 @@ const AirLineList = observer(() => {
                                     <LibraryComponents.Atoms.Typography.Regular
                                       color={Config.Styles.COLORS.BLACK}
                                       bold>
-                                      {`${item.Departure} - ${item.Destination}`}
+                                      {`${getIcon(item).title}`}
                                     </LibraryComponents.Atoms.Typography.Regular>
+                                    {(getIcon(item).title === 'Layover' ||
+                                      getIcon(item).title === 'Standby') && (
+                                      <>
+                                        <LibraryComponents.Atoms.Spacer
+                                          multiplier={0.2}
+                                        />
+                                        <LibraryComponents.Atoms.Typography.Small
+                                          color={Config.Styles.COLORS.GREY_1}>
+                                          {item.Departure +
+                                            `${
+                                              item.Destination
+                                                ? ` (${item.Destination})`
+                                                : ''
+                                            }`}
+                                        </LibraryComponents.Atoms.Typography.Small>
+                                      </>
+                                    )}
                                   </LibraryComponents.Molecules.WrappedView>
                                   <LibraryComponents.Molecules.WrappedView
                                     size={
@@ -112,40 +150,30 @@ const AirLineList = observer(() => {
                                     }
                                     align="flex-end"
                                     justify="flex-end">
+                                    <LibraryComponents.Atoms.Typography.Regular>
+                                      {`${
+                                        item.Time_Depart === item.Time_Arrive &&
+                                        item.Time_Depart
+                                          ? 'Match Crew'
+                                          : ''
+                                      }`}
+                                    </LibraryComponents.Atoms.Typography.Regular>
+                                    <LibraryComponents.Atoms.Spacer
+                                      multiplier={0.2}
+                                    />
                                     <LibraryComponents.Atoms.Typography.Regular
                                       color={Config.Styles.COLORS.RED}>
-                                      {`${item.Time_Depart}-${item.Time_Arrive}`}
+                                      {`${
+                                        item.Time_Depart
+                                          ? item.Time_Depart +
+                                            '-' +
+                                            item.Time_Arrive
+                                          : ''
+                                      }`}
                                     </LibraryComponents.Atoms.Typography.Regular>
                                   </LibraryComponents.Molecules.WrappedView>
                                 </LibraryComponents.Molecules.WrappedView>
                               )}
-                              // renderSectionHeader={({section, item}) => (
-                              //   <LibraryComponents.Molecules.WrappedView
-                              //     gutter={LibraryModels.Component.Location.All}>
-                              //     <LibraryComponents.Molecules.WrappedView
-                              //       stack={
-                              //         LibraryModels.Component.StackDirection
-                              //           .Horizontal
-                              //       }
-                              //       align="center"
-                              //       justify="space-between">
-                              //       <LibraryComponents.Atoms.Typography.Regular>
-                              //         {section.Departure}
-                              //       </LibraryComponents.Atoms.Typography.Regular>
-                              //       {/* <Icons.Common.Ionicons
-                              //   name="chevron-down"
-                              //   size={20}
-                              //   color={Config.Styles.COLORS.BLACK}
-                              // /> */}
-                              //     </LibraryComponents.Molecules.WrappedView>
-                              //     <LibraryComponents.Atoms.Spacer
-                              //       multiplier={0.2}
-                              //     />
-                              //     <LibraryComponents.Atoms.Typography.Small>{`${values.length} Items`}</LibraryComponents.Atoms.Typography.Small>
-                              //   </LibraryComponents.Molecules.WrappedView>
-                              // )}
-                              // ItemSeparatorComponent={SelectionItemSepratorView}
-                              // ListFooterComponent={SelectionItemSepratorView}
                             />
                           );
                         })}
@@ -154,7 +182,7 @@ const AirLineList = observer(() => {
                     keyExtractor={item => String(item.date + 'Main')}
                     // ItemSeparatorComponent={ItemSeparatorView}
                     // ListFooterComponent={ItemSeparatorView}
-                    contentContainerStyle={{paddingBottom: 30}}
+                    contentContainerStyle={{paddingBottom: 50}}
                     extraData={{
                       airLineList: Array.from(Stores.airLineStore.airLineList),
                     }}
