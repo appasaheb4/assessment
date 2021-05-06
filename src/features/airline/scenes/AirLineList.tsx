@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   FlatList,
   RefreshControl,
   SectionList,
   SafeAreaView,
+  NativeModules,
 } from 'react-native';
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -16,6 +17,7 @@ import * as LibraryModels from '@at/library/models';
 import * as Models from '../models';
 
 import {Stores} from '../stores';
+moment.locale('de');
 
 const AirLineList = observer(() => {
   // const route = useRoute<RouteProp<Models.PicaDayRouteParams, 'AirLineList'>>();
@@ -56,6 +58,12 @@ const AirLineList = observer(() => {
       }`,
     };
   };
+
+  useEffect(() => {
+    NativeModules.Bitcoin.getCoin('USD').then((res: any) => {
+      console.log('Coins: ', res);
+    });
+  }, []);
 
   return (
     <>
