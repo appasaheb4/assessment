@@ -7,6 +7,7 @@ import * as Services from '../services';
 class AirLineStore {
   @observable airLineList?: any[] = [];
   @ignore @observable loading: boolean = false;
+  @ignore @observable curreny?: any;
 
   constructor() {
     makeObservable(this);
@@ -20,6 +21,9 @@ class AirLineStore {
       this.loading = false;
       this.airLineList = res;
     });
+  }
+  @action updateCurreny(crr: any) {
+    this.curreny = crr;
   }
 }
 

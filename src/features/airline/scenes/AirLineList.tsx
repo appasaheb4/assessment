@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   FlatList,
@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   NativeModules,
 } from 'react-native';
-import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {observer} from 'mobx-react';
 import moment from 'moment';
@@ -21,6 +21,7 @@ moment.locale('de');
 
 const AirLineList = observer(() => {
   // const route = useRoute<RouteProp<Models.PicaDayRouteParams, 'AirLineList'>>();
+  const [value, setValue] = useState<string>('');
   const navigation = useNavigation<
     StackNavigationProp<Models.AirLineRouteParams, 'AirLineList'>
   >();
@@ -59,12 +60,6 @@ const AirLineList = observer(() => {
     };
   };
 
-  useEffect(() => {
-    NativeModules.Bitcoin.getCoin('USD').then((res: any) => {
-      console.log('Coins: ', res);
-    });
-  }, []);
-
   return (
     <>
       <SafeAreaView />
@@ -77,8 +72,54 @@ const AirLineList = observer(() => {
           <LibraryComponents.Molecules.WrappedView
             size={LibraryModels.Component.ElementSize.Block}>
             <LibraryComponents.Molecules.WrappedView
-              size={LibraryModels.Component.ElementSize.Block}>
-              {Stores.airLineStore.airLineList
+              size={LibraryModels.Component.ElementSize.Block}
+              align="center"
+              justify="center">
+              <LibraryComponents.Atoms.TextInput
+                autoCapitalize="characters"
+                placeholder="Bitcoin currency"
+                value={value}
+                color={Config.Styles.COLORS.FACEBOOK}
+                onChangeText={async (value: string) => {
+                  setValue(value.toUpperCase());
+                  NativeModules.Bitcoin.getCoin(value.toUpperCase()).then(
+                    (res: any) => {
+                      res = JSON.parse(res);
+                      console.log({res});
+                      console.log({res: res.bpi[value]});
+                      Stores.airLineStore.updateCurreny(res.bpi[value]);
+                    },
+                  );
+                }}
+              />
+              <LibraryComponents.Atoms.Spacer multiplier={0.6} />
+              {!Stores.airLineStore.curreny && (
+                <LibraryComponents.Atoms.Typography.Regular
+                  color={Config.Styles.COLORS.RED}>
+                  Please type curreny
+                </LibraryComponents.Atoms.Typography.Regular>
+              )}
+              {Stores.airLineStore.curreny && (
+                <>
+                  <LibraryComponents.Atoms.Typography.Regular>
+                    Code: {Stores.airLineStore.curreny.code}
+                  </LibraryComponents.Atoms.Typography.Regular>
+                  <LibraryComponents.Atoms.Spacer multiplier={0.4} />
+                  <LibraryComponents.Atoms.Typography.Regular>
+                    Description: {Stores.airLineStore.curreny.description}
+                  </LibraryComponents.Atoms.Typography.Regular>
+                  <LibraryComponents.Atoms.Spacer multiplier={0.4} />
+                  <LibraryComponents.Atoms.Typography.Regular>
+                    Rate: {Stores.airLineStore.curreny.rate}
+                  </LibraryComponents.Atoms.Typography.Regular>
+                  <LibraryComponents.Atoms.Spacer multiplier={0.4} />
+                  <LibraryComponents.Atoms.Typography.Regular>
+                    Rate float: {Stores.airLineStore.curreny.rate_float}
+                  </LibraryComponents.Atoms.Typography.Regular>
+                </>
+              )}
+
+              {/* {Stores.airLineStore.airLineList
                 ? Stores.airLineStore.airLineList.length > 0 && (
                     <FlatList
                       data={Stores.airLineStore.airLineList || []}
@@ -209,7 +250,7 @@ const AirLineList = observer(() => {
                       }}
                     />
                   )
-                : null}
+                : null} */}
             </LibraryComponents.Molecules.WrappedView>
           </LibraryComponents.Molecules.WrappedView>
           <View

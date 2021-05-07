@@ -12,6 +12,7 @@ interface DynamicTextInputProps {
   placeholder?: string;
   small?: boolean;
   lines?: number;
+  autoCapitalize?: 'characters';
 }
 
 const Text: React.FunctionComponent<DynamicTextInputProps> = props => {
@@ -23,6 +24,7 @@ const Text: React.FunctionComponent<DynamicTextInputProps> = props => {
       multiline={props.multiline}
       autoCorrect={false}
       numberOfLines={props.lines}
+      autoCapitalize={props.autoCapitalize}
       style={[
         props.style,
         {

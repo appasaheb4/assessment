@@ -16,20 +16,27 @@ RCT_EXPORT_METHOD(
                   rejecter:(RCTPromiseRejectBlock)reject
                   )
 {
-      NSString *urlAsString = [NSString stringWithFormat:@"https://api.coindesk.com/v1/bpi/currentprice.json"];
-      NSURL *url = [[NSURL alloc] initWithString:urlAsString];
-      [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-          if (error) {
-             // [self.delegate fetchingGroupsFailedWithError:error];
-            NSLog(error);
-          } else {
-            NSLog(@"data :",data);
-            NSLog(@"response",response);
-             // [self.delegate receivedGroupsJSON:data];
-          }
-      }];
+      
+  
+  
+  NSURL *url = [NSURL URLWithString:@"https://api.coindesk.com/v1/bpi/currentprice.json"];
+  //The URL where you send the POST
 
-  resolve(@"Hello from iOS");
+  NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url
+                                                     cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                 timeoutInterval:60];
+  [req setHTTPMethod:@"GET"];    //Set method to POST
+  [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+  //Set headers for the data, in this case TEXT
+  NSHTTPURLResponse* urlResponse = nil; //Response
+  NSError *err = [[NSError alloc] init];  //Allocate error
+  NSData *responseData = [NSURLConnection sendSynchronousRequest:req
+                                               returningResponse:&urlResponse
+                                                           error:&err];
+  //Guardamos los parametros que obtuvimos en la respuesta
+  NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]; //Save the response as string
+  NSLog(@"Respueta: %@", responseString); //Check the response
+  resolve(responseString);
 }
 
 
