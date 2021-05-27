@@ -8,10 +8,10 @@
  * @format
  */
 
-import Routes from './src/flows/routes';
-
 import React from 'react';
-import * as AirLine from './src/features/airline';
+
+import {CustomeIcons} from './src/features/customeIcons';
+
 import {LogBox} from 'react-native';
 import {configure} from 'mobx';
 configure({
@@ -22,20 +22,9 @@ LogBox.ignoreLogs(['Warning:']);
 declare const global: {HermesInternal: null | {}};
 
 const App = () => {
-  const loader = async () => {
-    await AirLine.startup();
-  };
-
-  React.useEffect(() => {
-    loader();
-  }, []);
   return (
     <>
-      <Routes
-        scenes={{
-          ...AirLine.Scenes,
-        }}
-      />
+      <CustomeIcons />
     </>
   );
 };

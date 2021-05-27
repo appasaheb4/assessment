@@ -5,7 +5,6 @@ import {
   RefreshControl,
   SectionList,
   SafeAreaView,
-  NativeModules,
 } from 'react-native';
 import {useNavigation, useRoute, RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -58,12 +57,6 @@ const AirLineList = observer(() => {
       }`,
     };
   };
-
-  useEffect(() => {
-    NativeModules.Bitcoin.getCoin('USD').then((res: any) => {
-      console.log('Coins: ', res);
-    });
-  }, []);
 
   return (
     <>
