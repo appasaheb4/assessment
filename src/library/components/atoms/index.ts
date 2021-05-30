@@ -6,7 +6,7 @@ import InputWrapperWithLabel from './InputWrapperWithLabel';
 import Pill from './Pill';
 import TextInput from './TextInput';
 import ImageButton from './ImageButton';
-import Icon from './Icon';
+import * as Icon from './Icon';
 
 export {
   Typography,
