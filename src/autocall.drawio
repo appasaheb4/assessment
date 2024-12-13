@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="25.0.3">
   <diagram name="Page-1" id="DALA4FKXpwunFTNvOnyw">
-    <mxGraphModel dx="1434" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="574" dy="298" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -20,14 +20,16 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-1" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="80" y="270" width="150" height="150" as="geometry" />
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-1" value="&lt;div&gt;AutoCall Pricer&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="110" y="300" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="lpmktUAj_lBDETjyY4Hj-2" target="lpmktUAj_lBDETjyY4Hj-5">
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="lpmktUAj_lBDETjyY4Hj-1" target="lpmktUAj_lBDETjyY4Hj-5">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="510" y="490" as="targetPoint" />
+            <mxPoint x="150" y="390" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="120" y="450" />
+              <mxPoint x="160" y="420" />
+              <mxPoint x="160" y="450" />
               <mxPoint x="490" y="450" />
             </Array>
           </mxGeometry>
@@ -37,21 +39,12 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-2" value="Input" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="90" y="280" width="60" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-3" value="Output" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="160" y="280" width="60" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-4" value="AutoCall Pricer" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="110" y="240" width="100" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="lpmktUAj_lBDETjyY4Hj-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.007;entryY=0.42;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="lpmktUAj_lBDETjyY4Hj-5" target="lpmktUAj_lBDETjyY4Hj-1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="270" y="335" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-9" value="Web Socket URL" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="lpmktUAj_lBDETjyY4Hj-8">
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-9" value="Web Socket URL Response" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="lpmktUAj_lBDETjyY4Hj-8">
           <mxGeometry x="0.0351" y="2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -61,6 +54,15 @@
         </mxCell>
         <mxCell id="lpmktUAj_lBDETjyY4Hj-12" value="UI AutoCall A&lt;span data-teams=&quot;true&quot;&gt;rchitecture&lt;/span&gt;&amp;nbsp;Diagram" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="190" y="490" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-13" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="460" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-14" value="2" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="349" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-15" value="3" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="329" y="415" width="40" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
