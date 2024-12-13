@@ -4,6 +4,22 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;exitX=1.02;exitY=0.933;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0.925;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="lpmktUAj_lBDETjyY4Hj-1" target="lpmktUAj_lBDETjyY4Hj-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="470" y="380" as="targetPoint" />
+            <mxPoint x="240" y="410" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="350" y="410" />
+              <mxPoint x="350" y="381" />
+              <mxPoint x="460" y="381" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-11" value="Web Socket Connection" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="lpmktUAj_lBDETjyY4Hj-10">
+          <mxGeometry x="-0.1155" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="lpmktUAj_lBDETjyY4Hj-1" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="80" y="270" width="150" height="150" as="geometry" />
         </mxCell>
@@ -16,7 +32,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-7" value="Rest Request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="lpmktUAj_lBDETjyY4Hj-6">
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-7" value="Rest API&#39;s Request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="lpmktUAj_lBDETjyY4Hj-6">
           <mxGeometry x="-0.0495" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
