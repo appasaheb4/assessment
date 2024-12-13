@@ -4,10 +4,10 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="lpmktUAj_lBDETjyY4Hj-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;exitX=1.02;exitY=0.933;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=0.925;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="lpmktUAj_lBDETjyY4Hj-1" target="lpmktUAj_lBDETjyY4Hj-5">
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;entryX=0.25;entryY=0.925;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="lpmktUAj_lBDETjyY4Hj-5">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="470" y="380" as="targetPoint" />
-            <mxPoint x="240" y="410" as="sourcePoint" />
+            <mxPoint x="230" y="410" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="350" y="410" />
               <mxPoint x="350" y="381" />
@@ -58,6 +58,9 @@
         </mxCell>
         <mxCell id="lpmktUAj_lBDETjyY4Hj-5" value="Service" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="430" y="295" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lpmktUAj_lBDETjyY4Hj-12" value="UI AutoCall A&lt;span data-teams=&quot;true&quot;&gt;rchitecture&lt;/span&gt;&amp;nbsp;Diagram" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="190" y="490" width="250" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
